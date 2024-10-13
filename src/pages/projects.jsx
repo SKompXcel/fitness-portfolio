@@ -11,17 +11,17 @@ import logoPlanetaria from '@/images/logos/planetaria.svg'
 
 const projects = [
   {
-    name: 'WebX DAO',
+    name: 'SkompXcel',
     description:
-      'We focus on building and talking about possible future usage of web technologies.',
-    link: { href: 'https://github.com/WebXDAO', label: 'github.com/WebXDAO' },
+      'Sole Proprietor - Expert tutoring and academic assistance...',
+    link: { href: 'https://skompxcel.com/', label: 'skompxcel.com' },
     logo: logoPlanetaria,
   },
   {
-    name: 'SurPath Hub',
+    name: 'E&S Solns.',
     description:
-      'Inclusive Open Source Community for Filipino student ',
-    link: { href: 'https://github.com/SurPathHub', label: 'github.com/SurPathHub' },
+      'Co-Founder and Lead Developer - Automation and software solutions for small businesses...',
+    link: { href: 'https://www.es-soln.com/', label: 'es-soln.com' },
     logo: logoAnimaginary,
   },
 ]
@@ -41,7 +41,7 @@ export default function Projects() {
   return (
     <>
       <Head>
-        <title>Vincent Villafuerte | Projects</title>
+        <title>Suleyman Kiani | Projects</title>
         <meta
           name="description"
           content="Things I’ve made trying to put my dent in the universe."

@@ -16,11 +16,12 @@ import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
 import image4 from '@/images/photos/image-4.jpg'
-import image5 from '@/images/photos/image-5.jpg'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
+import image5 from '@/images/photos/image-5.png'
+import video from '@/images/videos/progress.mp4'
+import logoSKompXcel from '@/images/logos/SKompXcel.png'
+import logoBTC from '@/images/logos/btc.png'
+import logoGiftCash from '@/images/logos/giftcash.jpeg'
+import logoSDI from '@/images/logos/sdi.jpeg'
 import logoDevProtocol from '@/images/logos/devprotocol.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
@@ -140,11 +141,11 @@ function Newsletter() {
 function Resume() {
   let resume = [
     {
-      company: 'Dev Protoocol',
-      title: 'Program Manager',
-      logo: logoDevProtocol,
-      start: 'Jan 2022',
-      end: 'Nov 2022',
+      company: 'SKompXcel',
+      title: 'Founder',
+      logo: logoSKompXcel,
+      start: 'Jan 2024',
+      end: 'Present',
       // start: '2019',
       // end: {
       //   label: 'Present',
@@ -152,18 +153,32 @@ function Resume() {
       // },
     },
     {
-      company: 'Dev Protocol',
-      title: 'Developer Relations',
+      company: 'E&S Solns.',
+      title: 'Co-Founder and Lead Developer',
       logo: logoDevProtocol,
-      start: 'Oct 2021',
-      end: '2019',
+      start: 'June 2023',
+      end: 'Present',
     },
     {
-      company: 'Dev Protocol',
-      title: 'DevRel Intern',
-      logo: logoDevProtocol,
-      start: 'Jul 2021',
-      end: 'Oct 2021',
+      company: 'Burlington Training Center',
+      title: 'Mixed Martial Arts/Fitness Instructor & IT Administrator',
+      logo: logoBTC,
+      start: 'March 2024',
+      end: 'Present',
+    },
+    {
+      company: 'GiftCash Inc.',
+      title: 'Software Developer Intern',
+      logo: logoGiftCash,
+      start: 'May 2021',
+      end: ' Aug 2022',
+    },
+    {
+      company: 'SDI Labs.',
+      title: 'Software Engineer Intern',
+      logo: logoSDI,
+      start: 'June 2019',
+      end: ' Aug 2022',
     },
   ]
 
@@ -207,7 +222,7 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="./Villafuerte-Vincent_Resume.pdf" variant="secondary" className="group mt-6 w-full">
+      <Button href="./suleymankiani_resume1024.pdf" variant="secondary" className="group mt-6 w-full">
         Download Resume
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
@@ -216,30 +231,45 @@ function Resume() {
 }
 
 function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2'];
 
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
+        {[image1, image2, image3, video, image5].map((media, mediaIndex) => (
           <div
-            key={image.src}
+            key={media.src || media} // Adjust key for video
             className={clsx(
               'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-              rotations[imageIndex % rotations.length]
+              rotations[mediaIndex % rotations.length]
             )}
           >
-            <Image
-              src={image}
-              alt=""
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
+            {media === video ? ( // Check if the media is the video
+              <video
+                src="/videos/progress.mp4" // Use the imported video variable
+                className="absolute inset-0 h-full w-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls // Add controls for testing
+                style={{ width: '100%', height: '100%' }} // Set explicit width and height
+              />
+            ) : (
+              <Image
+                src={media.src}
+                alt=""
+                width={700} // Set the width
+                height={475} // Set the height
+                sizes="(min-width: 640px) 18rem, 11rem"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            )}
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default function Home({ articles }) {
@@ -247,42 +277,40 @@ export default function Home({ articles }) {
     <>
       <Head>
         <title>
-          Vincent Villafuerte | Home
+          Suleyman Kiani | Home
         </title>
         <meta
           name="description"
-          content=" Hi, I'm Vincent, an Octocat-loving developer community enthusiast based in the Philippines."
+          content="Hi, I'm Suleyman Kiani, a fitness and martial arts instructor, web developer, and enthusiast of chess and basketball."
         />
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Open Source Advocate and Developer Community Specialist
+            Fitness Journey and Beyond
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-          Hi, I’m Vincent, a dedicated and experienced GitHub Field Expert and Open Source Advocate. 
-          My passion lies in building strong relationships within the developer community, and 
-          I am the proud founder of both WebX DAO and SurPath Hub, two open-source communities aimed
-          at promoting the widespread use and accessibility of open source technology.
+          As a fitness enthusiast, I created this website to share my journey and evolution with the world. With my background in web development, I wanted to leverage my skills to build a platform where I can document my progress, share my ideas, and connect with like-minded individuals. 
+          Through this site, I aim to provide a glimpse into my fitness experiences, successes, and setbacks, in the hopes of inspiring and motivating others to embark on their own fitness journeys.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
-              href="https://twitter.com/vinzvinci"
+              href="https://twitter.com/suleymankiani"
               aria-label="Follow on Twitter"
               icon={TwitterIcon}
             />
             <SocialLink
-              href="https://www.instagram.com/vinzvinci/"
+              href="https://www.instagram.com/svley/"
               aria-label="Follow on Instagram"
               icon={InstagramIcon}
             />
             <SocialLink
-              href="https://github.com/vinzvinci"
+              href="https://github.com/kianis4"
               aria-label="Follow on GitHub"
               icon={GitHubIcon}
             />
             <SocialLink
-              href="https://www.linkedin.com/in/vinzvinci/"
+              href="https://www.linkedin.com/in/suleyman-kiani-9249a0240/"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />
